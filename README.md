@@ -21,7 +21,7 @@
 - childs_field，{String}，数据项子项列表字段名，默认"childs"    
 - callback，{Function}，回调函数，默认无执行效果。含有两个参数，一个是当前选中的树节点对应的数据对象，没有选中项返回null，一个是树的dom    
 
-####示例
+####代码示例
 详见[demo](https://github.com/Leesson/navtree/blob/master/demo.html)    
 ####效果图    
 ![tree_0](http://files.cnblogs.com/files/Ghunter/img1.gif)
