@@ -23,4 +23,7 @@
 
 ####示例
 详见[demo](https://github.com/Leesson/navtree/blob/master/demo.html)    
-####效果图
+####效果图    
+![tree0](http://files.cnblogs.com/files/Ghunter/1.gif)
+![tree1](http://files.cnblogs.com/files/Ghunter/2.gif)
+![tree2](http://files.cnblogs.com/files/Ghunter/3.gif)
