@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>navtree</title>
+
+    <link href="navtree.css" rel="stylesheet">
+    <script src="http://common.cnblogs.com/script/jquery.js"></script>
+    <script src="jquery.navtree.js"></script>
+</head>
+<body>
+	<div id="filterSubject" style="width:300px;"></div>
+	
+	<script>		
+		$('#filterSubject').navtree([
+		  {
+			code: "tree1"
+		  },{
+			code: "tree2",
+			childs: [{
+			  code: "tree2-1"
+			}]
+		  },{
+			code: "tree3",
+			childs: [{
+			  code: "tree3-1"
+			},{
+			  code: "tree3-2"
+			}]
+		  },{
+			code: "tree4",
+			childs: [{
+			  code: "tree4-1"
+			}]
+		  }
+		], {
+		  identify_field: "code",
+		  display_field: "code",
+		  title: "筛选树",
+		  childs_field: "childs",
+		  callback: function(item, panel) {
+			//todo
+			if(item) {
+			  console.log("您选中了" + item.code);
+			}
+		  }
+		});
+	</script>
+</body>
+</html>
