@@ -44,7 +44,7 @@
                         var options = $.extend(item, {grade: 0, isSelected: false});
                         var lnk = createLink(options).appendTo(bodyDiv);
                     });
-                    opts.callback(null, panel); //选中为空
+                    opts.callback(null, panel);
                 }
 
                 var drawList = function(arrObj, grade) {
@@ -69,7 +69,7 @@
                                 });
                             }
 
-                            return false; //跳出each
+                            return false;
                         } else {
                             if(childs) {
                                 matched = drawList(childs, grade + 1);
@@ -98,7 +98,6 @@
                     bodyDiv = $('<div class="filter-bd"/>').appendTo(panel);
                 }
 
-                //itemOpts:grade,opts.display_field,opts.identify_field,isSelected
                 var createLink = function(itemOpts) {
                     var link = $('<p class="filter-item"/>').addClass("tree-" + itemOpts.grade),
                         displayName = itemOpts[opts.display_field],
