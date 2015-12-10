@@ -69,6 +69,11 @@
     font-family: SimSun;
     margin-right: 3px;
 }
+.f-i-cross {
+	display: inline;
+    font-family: SimSun;
+    margin-right: 3px;
+}
 .filter-active .f-i-arrow {
     transform:rotate(90deg);
     -ms-transform:rotate(90deg); 	/* IE 9 */
