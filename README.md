@@ -17,7 +17,8 @@
 - display_field，{String}，数据项要显示的字段名，默认"name"    
 - selected，{String}，当前选中数据项的唯一标识，默认为""    
 - link_to，{String}，筛选树节点的链接，默认"#"    
-- title，{String}，筛选树标题名称，默认"navtree"    
+- title，{String}，筛选树标题名称，默认"navtree"  
+- node_style, {String}, 节点显示风格，目前只有两种"default"和"cross"，默认"default"    
 - childs_field，{String}，数据项子项列表字段名，默认"childs"    
 - callback，{Function}，回调函数，默认无执行效果。含有两个参数，一个是当前选中的树节点对应的数据对象，没有选中项返回null，一个是树的dom    
 
