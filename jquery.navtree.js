@@ -12,17 +12,28 @@
         navtree: function(dataList, opts) {
 
             var opts = $.extend({
+                title: "navtree",
                 identify_field: "code",
                 display_field: "name",
-                selected: "",
-                link_to: "#",
-                title: "navtree",
                 childs_field: "childs",
+                selected: "",
+				node_style: "default",
+                link_to: "#",
                 callback:function() {return false;}
             }, opts || {});
 
             return $(this).each(function() {
-                var panel = $(this),
+                var nodeStyle = {
+					"default": {
+						"open": '<span class="f-i-arrow">></span>',
+						"close": '<span class="f-i-arrow">></span>'
+					},
+					"cross": {
+						"open": '<span class="f-i-cross">-</span>',
+						"close": '<span class="f-i-cross">+</span>'
+					}
+				},
+					panel = $(this),
                     titleDiv, bodyDiv;
 
                 var init = function(data, grade) {
@@ -98,16 +109,21 @@
                     bodyDiv = $('<div class="filter-bd"/>').appendTo(panel);
                 }
 
+                //itemOpts:grade,opts.display_field,opts.identify_field,isSelected
                 var createLink = function(itemOpts) {
                     var link = $('<p class="filter-item"/>').addClass("tree-" + itemOpts.grade),
                         displayName = itemOpts[opts.display_field],
-                        identifyCode = itemOpts[opts.identify_field];
+                        identifyCode = itemOpts[opts.identify_field],
+						nodeIcon = nodeStyle[opts.node_style];
+					if(!nodeIcon) {
+						nodeIcon = nodeStyle["default"];
+					}
                     if(itemOpts.isSelected) {
                         link.addClass("filter-active");
                         $('<span/>').text(displayName)
                             .attr("title", displayName)
                             .appendTo(link)
-                            .before($('<span class="f-i-arrow">></span>'));
+                            .before($(nodeIcon.open));
                     }
                     else {
                         $('<a/>').text(displayName)
@@ -115,7 +131,7 @@
                             .attr("title", displayName)
                             .bind("click", clickHandler(itemOpts))
                             .appendTo(link)
-                            .before($('<span class="f-i-arrow">></span>'));
+                            .before($(nodeIcon.close));
                     }
 
                     return link;
